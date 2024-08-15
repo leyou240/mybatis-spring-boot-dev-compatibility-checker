@@ -20,11 +20,11 @@ jobs:
       max-parallel: 6
     steps:
       - uses: actions/checkout@v4
-      - name: Set JDK from jdk.java.net
-        uses: oracle-actions/setup-java@v1
+      - name: Set JDK zulu JDK
+        uses: actions/setup-java@v3
         with:
-          website: jdk.java.net
-          release: ${{ matrix.java }}
+          distribution: 'zulu'
+          java-version: ${{ matrix.java }}
         if: ${{ matrix.java != '17' }}
       - name: Set up older JDK
         uses: actions/setup-java@v3
